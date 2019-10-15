@@ -24,6 +24,7 @@ from flask import Flask, render_template, url_for, copy_current_request_context
 from random import random
 from time import sleep
 from threading import Thread, Event
+from jinja2 import Environment, FileSystemLoader
 
 
 __author__ = 'slynn'
@@ -41,7 +42,7 @@ thread_stop_event = Event()
 
 class RandomThread(Thread):
     def __init__(self):
-        self.delay = 1
+        self.delay = 3
         super(RandomThread, self).__init__()
 
     def randomNumberGenerator(self):
@@ -52,9 +53,12 @@ class RandomThread(Thread):
         #infinite loop of magical random numbers
         print("Making random numbers")
         while not thread_stop_event.isSet():
-            f = open("./templates/homepage.html", "r")
-            stringtest=f.read()
-            socketio.emit('html', {'number': stringtest}, namespace='/test')
+            file_loader = FileSystemLoader('templates')
+            env = Environment(loader=file_loader)
+            template = env.get_template("photos.html")
+            output = template.render(txtmsg='test de message')
+            print(output)
+            socketio.emit('html', {'number': output}, namespace='/test')
             sleep(self.delay)
 
     def run(self):
