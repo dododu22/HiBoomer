@@ -54,7 +54,7 @@ class RandomThread(Thread):
         while not thread_stop_event.isSet():
             number = round(random()*10, 3)
             print(number)
-            socketio.emit('newnumber', {'number': number}, namespace='/test')
+            socketio.emit('newnumber', {'number': "<b>Salut</b>"}, namespace='/test')
             sleep(self.delay)
 
     def run(self):
