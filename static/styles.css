@@ -18,17 +18,17 @@
     .postalcard {
         position: relative;
         top: -450px ;
-        left: 30%;
+        left: 25%;
         justify-content: center;
         align-items: center;
         display: flex;
-        width: 35%;
-        height: 350px;
+        width: 50%;
+        height: 400px;
         background: #ffffff;
         border: solid;
         border-color: #0099FF;
         border-radius: 5px;
-
+        font-family: 'Montserrat', arial;
     }
 
   .header {
