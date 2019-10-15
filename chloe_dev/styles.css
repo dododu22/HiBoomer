@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background: #0099ff;
+  color: #ffffff;
+  font-size: 50px; /* Titres de 40 pixels */
+  font-family: 'Montserrat Light', arial;
+}
+
+#container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:30px;
+    height: 70%;
+    color: #ffffff;
+    font-family: 'Montserrat Light', arial;
+    /*border: 2px solid red;*/
+  }
+
+  .contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:10px;
+    margin-right:10px;
+    max-width:30%;
+    height:80%;;
+    background: #0099ff;
+    border-radius: 5px;
+  }
+  .contact_selected{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:10px;
+    margin-right:10px;
+    max-width:30%;
+    height:80%;;
+    background: #2c7baf;
+    border-radius: 5px;
+  }
+  .name{
+    font-size:30px;
+    margin-bottom:30px;
+  }
+  .status{
+    font-size:20px;
+    margin-bottom:30px;
+  }
+  .connection{
+    font-size:20px;
+    margin-bottom:50px;
+  }
+
+  .contact_img{
+      width:70%;
+  }
+
+
+
