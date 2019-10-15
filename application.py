@@ -52,9 +52,9 @@ class RandomThread(Thread):
         #infinite loop of magical random numbers
         print("Making random numbers")
         while not thread_stop_event.isSet():
-            number = round(random()*10, 3)
-            print(number)
-            socketio.emit('newnumber', {'number': "<b>Salut</b>"}, namespace='/test')
+            f = open("./templates/homepage.html", "r")
+            stringtest=f.read()
+            socketio.emit('html', {'number': stringtest}, namespace='/test')
             sleep(self.delay)
 
     def run(self):

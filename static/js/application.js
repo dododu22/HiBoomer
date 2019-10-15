@@ -5,7 +5,7 @@ $(document).ready(function(){
     var numbers_received = [];
 
     //receive details from server
-    socket.on('newnumber', function(msg) {
+    socket.on('html', function(msg) {
         console.log("Received number" + msg.number);
         //maintain a list of ten numbers
         $('#log').html(msg.number);
