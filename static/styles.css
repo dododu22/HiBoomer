@@ -30,6 +30,29 @@
         border-radius: 5px;
         font-family: 'Montserrat', arial;
     }
+  
+
+    .postalcard_animated {
+      position: relative;
+      top: -450px ;
+      left: 25%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      width: 50%;
+      height: 400px;
+      background: #ffffff;
+      border: solid;
+      border-color: #0099FF;
+      border-radius: 5px;
+      font-family: 'Montserrat', arial;
+      animation-name: example;
+      animation-duration: 4s;
+  }
+  @keyframes example {
+    0% {top: -450px;}
+    100% {top: -2000px;}
+  }
 
   .header {
     display: flex;

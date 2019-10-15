@@ -53,6 +53,7 @@ class RandomThread(Thread):
         #infinite loop of magical random numbers
         print("Making random numbers")
         is_selected = [True, False, False]
+        animate = False
         while not thread_stop_event.isSet():
             file_loader = FileSystemLoader('templates')
             env = Environment(loader=file_loader)
@@ -84,8 +85,13 @@ class RandomThread(Thread):
                 is_selected = temp_list
                 print(is_selected)
             else:
+                postal_class="postalcard"
+                if not animate:
+                    animate=True
+                else:
+                    postal_class="postalcard_animated"
                 template = env.get_template("photos.html")
-                output = template.render(txtmsg="Quelle belle photo mamie")
+                output = template.render(txtmsg="Quelle belle photo mamie", postal_class=postal_class)
 
             socketio.emit('html', {'number': output}, namespace='/test')
             sleep(self.delay)
