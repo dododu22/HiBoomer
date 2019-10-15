@@ -52,12 +52,36 @@ class RandomThread(Thread):
         """
         #infinite loop of magical random numbers
         print("Making random numbers")
+        is_selected = [True, False, False]
         while not thread_stop_event.isSet():
             file_loader = FileSystemLoader('templates')
             env = Environment(loader=file_loader)
-            template = env.get_template("photos.html")
-            output = template.render(txtmsg='test de message')
+            template = env.get_template("contacts.html")
+            class_select= []
+            for i in range(0, len(is_selected)):
+                if is_selected[i]:
+                    class_select.append("contact_selected")
+                else:
+                    class_select.append("contact")
+            
+            output = template.render(is_selected_1=class_select[0], is_selected_2=class_select[1], is_selected_3=class_select[2])
             print(output)
+            temp_list = []
+            i=0
+            while i<len(is_selected):
+                if is_selected[i]:
+                    temp_list.append(False)
+                    if i<len(is_selected)-1:
+                        temp_list.append(True)
+                        i+=1
+                    else:
+                        temp_list[0]=True
+                        i+=1
+                else:
+                    temp_list.append(False)
+                i+=1
+            is_selected = temp_list
+            print(is_selected)
             socketio.emit('html', {'number': output}, namespace='/test')
             sleep(self.delay)
 
