@@ -54,6 +54,11 @@ class RandomThread(Thread):
         print("Making random numbers")
         is_selected = [True, False, False]
         animate = False
+        change_image=False
+        i=0
+        paysages = ["paysage", "paysage_2", "paysage_3"]
+        paysages_index = 0
+        comments = ["La bretagne ca vous gagne", "Les alpes en automnes", "La bretagne en ete c'est très beau"]
         while not thread_stop_event.isSet():
             file_loader = FileSystemLoader('templates')
             env = Environment(loader=file_loader)
@@ -85,16 +90,29 @@ class RandomThread(Thread):
                 is_selected = temp_list
                 print(is_selected)
             else:
-                postal_class="postalcard"
-                if not animate:
-                    animate=True
-                else:
-                    postal_class="postalcard_animated"
-                template = env.get_template("photos.html")
-                output = template.render(txtmsg="Quelle belle photo mamie", postal_class=postal_class)
+                for i in range(0, len(paysages)):
+                    
+                    animation_foreground="none"
+                    animation_background="none"
+                    image_foreground = paysages[i]
+                    image_background = paysages[(i+1)%len(paysages)]
+                    txtmsg_foreground = comments[i]
+                    txtmsg_background = comments[(i+1)%len(paysages)]
+                    template = env.get_template("photos.html")
+                    output = template.render(txtmsg_foreground=txtmsg_foreground,txtmsg_background=txtmsg_background , animation_foreground=animation_foreground,
+                                            animation_background=animation_background, image_foreground=image_foreground, image_background=image_background)
 
-            socketio.emit('html', {'number': output}, namespace='/test')
-            sleep(self.delay)
+                    socketio.emit('html', {'number': output}, namespace='/test')
+                    sleep(self.delay)
+
+                    animation_foreground="foreground"
+                    animation_background="background"
+
+                    output = template.render(txtmsg_background=txtmsg_background,txtmsg_foreground=txtmsg_foreground, animation_foreground=animation_foreground,
+                                            animation_background=animation_background, image_foreground=image_foreground, image_background=image_background)
+
+                    socketio.emit('html', {'number': output}, namespace='/test')
+                    sleep(self.delay)
 
     def run(self):
         self.randomNumberGenerator()

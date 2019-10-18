@@ -5,7 +5,12 @@
     Photos
 </div>
 
-<div class="{{postal_class}}">
-        <img src="/static/paysage.jpg" style="width:70%;height:auto">
-        {{txtmsg}}
+<div class="postalcard" style="animation-name: {{animation_foreground}};animation-duration: 4s;">
+        <img src="/static/{{image_foreground}}.jpg" style="width:70%;height:auto">
+        {{txtmsg_foreground}}
+</div>
+
+<div class="postalcard" style="animation-name: {{animation_background}};animation-duration: 4s;opacity:0;">
+        <img src="/static/{{image_background}}.jpg" style="width:70%;height:auto">
+        {{txtmsg_background}}
 </div>

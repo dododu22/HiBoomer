@@ -16,8 +16,8 @@
   }
 
     .postalcard {
-        position: relative;
-        top: -450px ;
+        position: absolute;
+        top: 200px ;
         left: 25%;
         justify-content: center;
         align-items: center;
@@ -31,27 +31,13 @@
         font-family: 'Montserrat', arial;
     }
   
-
-    .postalcard_animated {
-      position: relative;
-      top: -450px ;
-      left: 25%;
-      justify-content: center;
-      align-items: center;
-      display: flex;
-      width: 50%;
-      height: 400px;
-      background: #ffffff;
-      border: solid;
-      border-color: #0099FF;
-      border-radius: 5px;
-      font-family: 'Montserrat', arial;
-      animation-name: example;
-      animation-duration: 4s;
+  @keyframes foreground {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
   }
-  @keyframes example {
-    0% {top: -450px;}
-    100% {top: -2000px;}
+  @keyframes background {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
   }
 
   .header {
