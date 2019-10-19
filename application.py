@@ -62,7 +62,7 @@ class RandomThread(Thread):
         while not thread_stop_event.isSet():
             file_loader = FileSystemLoader('templates')
             env = Environment(loader=file_loader)
-            if False:
+            if True:
                 template = env.get_template("contacts.html")
                 class_select= []
                 for i in range(0, len(is_selected)):
@@ -115,12 +115,16 @@ class RandomThread(Thread):
 
                     socketio.emit('html', {'number': output}, namespace='/test')
                     sleep(self.delay)
-            if True:
-                
+            if False:
                 template = env.get_template("call.html")
                 output = template.render()
                 socketio.emit('html', {'number': output}, namespace='/test')
                 sleep(1000000)
+            if False:
+                template = env.get_template("homepage.html")
+                output = template.render()
+                socketio.emit('html', {'number': output}, namespace='/test')
+                sleep(self.delay)
 
     def run(self):
         self.randomNumberGenerator()

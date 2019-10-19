@@ -78,9 +78,11 @@ body{
       align-items: center;
       margin-left:10px;
       margin-right:10px;
-      max-width:30%;
-      height:80%;;
+      max-width:25%;
+      height:100%;;
       background: #0099ff;
+      border: solid;
+      border-color: white;
       border-radius: 5px;
     }
     .contact_selected{
@@ -90,9 +92,11 @@ body{
       align-items: center;
       margin-left:10px;
       margin-right:10px;
-      max-width:30%;
-      height:80%;;
+      max-width:25%;
+      height:100%;;
       background: #2c7baf;
+      border: solid;
+      border-color: white;
       border-radius: 5px;
     }
     .name{
