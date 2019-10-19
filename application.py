@@ -25,9 +25,12 @@ from random import random
 from time import sleep
 from threading import Thread, Event
 from jinja2 import Environment, FileSystemLoader
+from contacts import change_contact
+from photos import change_photo
+from homepage import homepage
+from call import call
 
-
-__author__ = 'slynn'
+__author__ = ''
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -51,80 +54,19 @@ class RandomThread(Thread):
         Ideally to be run in a separate thread?
         """
         #infinite loop of magical random numbers
-        print("Making random numbers")
-        is_selected = [True, False, False]
-        animate = False
-        change_image=False
-        i=0
+        contact_selected = [True, False, False]
+        photo_selected = [True, False, False]
         paysages = ["paysage", "paysage_2", "paysage_3"]
-        paysages_index = 0
-        comments = ["La bretagne ca vous gagne", "Les alpes en automnes", "La bretagne en ete c'est très beau"]
+        comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau"]
         while not thread_stop_event.isSet():
-            file_loader = FileSystemLoader('templates')
-            env = Environment(loader=file_loader)
             if False:
-                template = env.get_template("contacts.html")
-                class_select= []
-                for i in range(0, len(is_selected)):
-                    if is_selected[i]:
-                        class_select.append("contact_selected")
-                    else:
-                        class_select.append("contact")
-                
-                output = template.render(is_selected_1=class_select[0], is_selected_2=class_select[1], is_selected_3=class_select[2])
-                print(output)
-                temp_list = []
-                i=0
-                while i<len(is_selected):
-                    if is_selected[i]:
-                        temp_list.append(False)
-                        if i<len(is_selected)-1:
-                            temp_list.append(True)
-                            i+=1
-                        else:
-                            temp_list[0]=True
-                            i+=1
-                    else:
-                        temp_list.append(False)
-                    i+=1
-                is_selected = temp_list
-                print(is_selected)
-                socketio.emit('html', {'number': output}, namespace='/test')
-                sleep(self.delay)
+                contact_selected=change_contact(True, contact_selected, socketio, self.delay)
             if False:
-                for i in range(0, len(paysages)):
-                    
-                    animation_foreground="none"
-                    animation_background="none"
-                    image_foreground = paysages[i]
-                    image_background = paysages[(i+1)%len(paysages)]
-                    txtmsg_foreground = comments[i]
-                    txtmsg_background = comments[(i+1)%len(paysages)]
-                    template = env.get_template("photos.html")
-                    output = template.render(txtmsg_foreground=txtmsg_foreground,txtmsg_background=txtmsg_background , animation_foreground=animation_foreground,
-                                            animation_background=animation_background, image_foreground=image_foreground, image_background=image_background)
-
-                    socketio.emit('html', {'number': output}, namespace='/test')
-                    sleep(self.delay)
-
-                    animation_foreground="foreground"
-                    animation_background="background"
-
-                    output = template.render(txtmsg_background=txtmsg_background,txtmsg_foreground=txtmsg_foreground, animation_foreground=animation_foreground,
-                                            animation_background=animation_background, image_foreground=image_foreground, image_background=image_background)
-
-                    socketio.emit('html', {'number': output}, namespace='/test')
-                    sleep(self.delay)
+                photo_selected = change_photo(photo_selected, paysages, comments, True, socketio, self.delay)
             if False:
-                template = env.get_template("call.html")
-                output = template.render()
-                socketio.emit('html', {'number': output}, namespace='/test')
-                sleep(1000000)
+                call("doran", socketio, 100)
             if True:
-                template = env.get_template("homepage.html")
-                output = template.render()
-                socketio.emit('html', {'number': output}, namespace='/test')
-                sleep(self.delay)
+                homepage(socketio, self.delay)
 
     def run(self):
         self.randomNumberGenerator()
