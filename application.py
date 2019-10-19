@@ -89,7 +89,9 @@ class RandomThread(Thread):
                     i+=1
                 is_selected = temp_list
                 print(is_selected)
-            else:
+                socketio.emit('html', {'number': output}, namespace='/test')
+                sleep(self.delay)
+            if False:
                 for i in range(0, len(paysages)):
                     
                     animation_foreground="none"
@@ -113,6 +115,12 @@ class RandomThread(Thread):
 
                     socketio.emit('html', {'number': output}, namespace='/test')
                     sleep(self.delay)
+            if True:
+                
+                template = env.get_template("call.html")
+                output = template.render()
+                socketio.emit('html', {'number': output}, namespace='/test')
+                sleep(1000000)
 
     def run(self):
         self.randomNumberGenerator()
