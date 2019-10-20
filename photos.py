@@ -1,8 +1,14 @@
 from time import sleep
 from jinja2 import Environment, FileSystemLoader
 from contacts import get_true_index
+import os
 
-def change_photo(photo_selected, paysages, comments, right, socketio, delay):
+
+def change_photo(photo_selected, comments, right, socketio, delay):
+    paysages = os.listdir("static/photos")
+    # if new photos arrived
+    nb_false = len(paysages) - len(photo_selected)
+    photo_selected = photo_selected + ([False]*nb_false)
     file_loader = FileSystemLoader('templates')
     env = Environment(loader=file_loader)
     animation_foreground="none"

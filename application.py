@@ -29,6 +29,8 @@ from contacts import change_contact
 from photos import change_photo
 from homepage import homepage
 from call import call
+import os
+from test_gdrive import GDriveThread
 
 __author__ = ''
 
@@ -49,23 +51,22 @@ class RandomThread(Thread):
         super(RandomThread, self).__init__()
 
     def randomNumberGenerator(self):
-        """
-        Generate a random number every 1 second and emit to a socketio instance (broadcast)
-        Ideally to be run in a separate thread?
-        """
         #infinite loop of magical random numbers
         contact_selected = [True, False, False]
-        photo_selected = [True, False, False]
-        paysages = ["paysage", "paysage_2", "paysage_3"]
-        comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau"]
+        paysages = os.listdir("static/photos")
+        photo_selected = [False] * len(paysages)
+        photo_selected[0]=True
+        comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau", "Posé en Y dans mon char à voile", "test3", "test4"]
+        thread2 = GDriveThread()
+        thread2.start()
         while not thread_stop_event.isSet():
             if False:
                 contact_selected=change_contact(True, contact_selected, socketio, self.delay)
-            if False:
-                photo_selected = change_photo(photo_selected, paysages, comments, True, socketio, self.delay)
+            if True:
+                photo_selected = change_photo(photo_selected, comments, True, socketio, self.delay)
             if False:
                 call("doran", socketio, 100)
-            if True:
+            if False:
                 homepage(socketio, self.delay)
 
     def run(self):
