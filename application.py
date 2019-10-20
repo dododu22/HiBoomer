@@ -56,7 +56,7 @@ class RandomThread(Thread):
         paysages = os.listdir("static/photos")
         photo_selected = [False] * len(paysages)
         photo_selected[0]=True
-        comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau", "Posé en Y dans mon char à voile", "test3", "test4"]
+        comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau", "Posé en Y dans mon char à voile", "Quel soleil Mamie!", "Le printemps est la!"]
         thread2 = GDriveThread()
         thread2.start()
         while not thread_stop_event.isSet():
