@@ -26,3 +26,7 @@ class GDriveThread(Thread):
         self.gDriveSync()
 
 
+if __name__ == '__main__':
+        thread2 = GDriveThread()
+        thread2.start()
+        print("ok")

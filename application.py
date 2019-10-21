@@ -30,7 +30,6 @@ from photos import change_photo
 from homepage import homepage
 from call import call
 import os
-from test_gdrive import GDriveThread
 
 __author__ = ''
 
@@ -57,8 +56,7 @@ class RandomThread(Thread):
         photo_selected = [False] * len(paysages)
         photo_selected[0]=True
         comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau", "Posé en Y dans mon char à voile", "Quel soleil Mamie!", "Le printemps est la!"]
-        thread2 = GDriveThread()
-        thread2.start()
+
         while not thread_stop_event.isSet():
             if False:
                 contact_selected=change_contact(True, contact_selected, socketio, self.delay)
