@@ -55,7 +55,16 @@ class RandomThread(Thread):
         paysages = os.listdir("static/photos")
         photo_selected = [False] * len(paysages)
         photo_selected[0]=True
-        comments = ["La Bretagne ça vous gagne", "Les alpes en automne!", "La bretagne en été c'est très beau", "Posé en Y dans mon char à voile", "Quel soleil Mamie!", "Le printemps est la!"]
+
+        comments = {"paysage":{"contact":"Morgan", "comment":"La Bretagne ça vous gagne!", "date":"12/04/2019"},
+                    "paysage_2":{"contact":"Yves", "comment":"Les alpes en automne!", "date":"16/05/2019"},
+                    "paysage_3":{"contact":"Marc", "comment":"La bretagne en été c'est très beau", "date":"19/06/2019"},
+                    "paysage_4":{"contact":"Morgan", "comment":"Posé en Y dans mon char à voile", "date":"21/06/2019"},
+                    "paysage_5":{"contact":"Marc", "comment":"Quel soleil Mamie!", "date":"04/07/2019"},
+                    "paysage_6":{"contact":"Morgan", "comment":"Le printemps est la!", "date":"07/08/2019"},
+                    "paysage_7":{"contact":"Morgan", "comment":"Un peu froid ce matin!", "date":"12/06/2019"},
+                    "paysage_8":{"contact":"Yves", "comment":"Vivement l'été!", "date":"10/04/2019"},
+                    "paysage_9":{"contact":"Yves", "comment":"Hiboomer? ca claque", "date":"22/07/2019"}}
 
         while not thread_stop_event.isSet():
             if False:
