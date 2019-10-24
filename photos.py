@@ -4,7 +4,7 @@ from contacts import get_true_index
 import os
 
 
-def change_photo(photo_selected, comments, right, socketio, delay):
+def change_photo(photo_selected, comments, right, socketio):
     paysages = os.listdir("static/photos")
     # if new photos arrived
     nb_false = len(paysages) - len(photo_selected)
@@ -44,7 +44,6 @@ def change_photo(photo_selected, comments, right, socketio, delay):
                             contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background)
 
     socketio.emit('html', {'number': output}, namespace='/test')
-    sleep(delay)
     photo_selected[position]=False
     photo_selected[(position+direction)%len(photo_selected)]=True
     print(photo_selected)
