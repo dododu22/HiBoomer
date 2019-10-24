@@ -46,6 +46,7 @@ def change_photo(photo_selected, comments, right, socketio, animate):
                             contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background)
 
     socketio.emit('html', {'number': output}, namespace='/test')
+    sleep(0.5)
     if animate:
         photo_selected[position]=False
         photo_selected[(position+direction)%len(photo_selected)]=True

@@ -73,11 +73,14 @@ class RandomThread(Thread):
         homepage_menu = True
         sockid = lirc.init("myprogram")
         code = "Nothing"
-        homepage(socketio)
         while not thread_stop_event.isSet():
             if contact_menu:
+                print("contact")
                 contact_selected=change_contact(True, contact_selected, socketio, self.delay)
+                code = lirc.nextcode()
+                print(code)
                 if len(code)>0 and code[0] == "right":
+                    print("change right")
                     contact_selected=change_contact(True, contact_selected, socketio, self.delay)
                 elif len(code)>0 and code[0] == "left":
                     contact_selected=change_contact(False, contact_selected, socketio, self.delay)
@@ -88,30 +91,41 @@ class RandomThread(Thread):
                     galerie_menu = True
                     contact_menu = False
             elif galerie_menu:
+                print("galerie")
                 photo_selected = change_photo(photo_selected, comments, True, socketio, False)
+                sleep(0.5)
+                code = lirc.nextcode()
+                print(code)
                 if len(code)>0 and code[0] == "right":
-                    photo_selected = change_photo(photo_selected, comments, True, socketio, True)
-                elif len(code)>0 and code[0] == "left":
+                    print("change right")
                     photo_selected = change_photo(photo_selected, comments, False, socketio, True)
+                elif len(code)>0 and code[0] == "left":
+                    print("change left")
+                    photo_selected = change_photo(photo_selected, comments, True, socketio, True)
                 elif len(code)>0 and code[0] == "orange":
                     galerie_menu = False
                     homepage_menu = True
-                elif len(code)>0 and code[0] == "blue":
-                    galerie_menu = False
-                    contact_menu = True
-                
+                    homepage(socketio)
+#                elif len(code)>0 and code[0] == "blue":
+#                    galerie_menu = False
+#                    contact_menu = True
             elif call_menu:
+                print("menu")
                 call("doran", socketio, 100)
             elif homepage_menu:
+                print("homepage")
                 homepage(socketio)
+                sleep(0.5)
+                code = lirc.nextcode()
+                print(code)
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False
                     galerie_menu = True
+
                 # if len(code)> 0 and code[0] == "bleu":
                 #     homepage_menu = False
                 #     contact_menu = True
-            code = lirc.nextcode()
-            print(code)
+
                 
 
     def run(self):
