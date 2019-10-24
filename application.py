@@ -73,7 +73,6 @@ class RandomThread(Thread):
         homepage_menu = True
         sockid = lirc.init("myprogram")
         while not thread_stop_event.isSet():
-            code = lirc.nextcode()
             if contact_menu:
                 if len(code)>0 and code[0] == "right":
                     contact_selected=change_contact(True, contact_selected, socketio, self.delay)
@@ -97,6 +96,7 @@ class RandomThread(Thread):
                 if len(code)> 0 and code[0] == "bleu":
                     homepage_menu = False
                     contact_menu = True
+            code = lirc.nextcode()
 
                 
 
