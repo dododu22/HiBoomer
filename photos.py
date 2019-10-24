@@ -29,12 +29,12 @@ def change_photo(photo_selected, comments, right, socketio, delay):
     date_foreground = comments[paysages[position].split(".")[0]]["date"]
     date_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["date"]
     template = env.get_template("photos.html")
-    output = template.render(txtmsg_foreground=txtmsg_foreground,txtmsg_background=txtmsg_background , animation_foreground=animation_foreground,
-                            animation_background=animation_background, image_foreground=image_foreground, image_background=image_background, notification_opacity=notification_opacity,
-                            contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background)
+    # output = template.render(txtmsg_foreground=txtmsg_foreground,txtmsg_background=txtmsg_background , animation_foreground=animation_foreground,
+    #                         animation_background=animation_background, image_foreground=image_foreground, image_background=image_background, notification_opacity=notification_opacity,
+    #                         contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background)
 
-    socketio.emit('html', {'number': output}, namespace='/test')
-    sleep(delay)
+    # socketio.emit('html', {'number': output}, namespace='/test')
+    # sleep(delay)
 
     animation_foreground="foreground"
     animation_background="background"

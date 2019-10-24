@@ -30,6 +30,8 @@ from photos import change_photo
 from homepage import homepage
 from call import call
 import os
+import lirc
+
 
 __author__ = ''
 
@@ -65,16 +67,38 @@ class RandomThread(Thread):
                     "paysage_7":{"contact":"Morgan", "comment":"Un peu froid ce matin!", "date":"12/06/2019"},
                     "paysage_8":{"contact":"Yves", "comment":"Vivement l'été!", "date":"10/04/2019"},
                     "paysage_9":{"contact":"Yves", "comment":"Hiboomer? ca claque", "date":"22/07/2019"}}
-
+        contact_menu = False
+        galerie_menu = False
+        call_menu = False
+        homepage_menu = True
+        sockid = lirc.init("myprogram")
         while not thread_stop_event.isSet():
-            if False:
-                contact_selected=change_contact(True, contact_selected, socketio, self.delay)
-            if True:
+            code = lirc.nextcode()
+            if contact_menu:
+                if len(code)>0 and code[0] == "right":
+                    contact_selected=change_contact(True, contact_selected, socketio, self.delay)
+                if len(code)>0 and code[0] == "left":
+                    contact_selected=change_contact(False, contact_selected, socketio, self.delay)
+                if len(code)>0 and code[0] == "orange":
+                    galerie_menu = False
+                    homepage_menu = True
+                if len(code)>0 and code[0] == "blue":
+                    galerie_menu = False
+                    contact_menu = True
+            if galerie_menu:
                 photo_selected = change_photo(photo_selected, comments, True, socketio, self.delay)
-            if False:
+            if call_menu:
                 call("doran", socketio, 100)
-            if False:
-                homepage(socketio, self.delay)
+            if homepage_menu:
+                homepage(socketio)
+                if len(code)>0 and code[0] == "orange":
+                    homepage_menu = False
+                    galerie_menu = True
+                if len(code)> 0 and code[0] == "bleu":
+                    homepage_menu = False
+                    contact_menu = True
+
+                
 
     def run(self):
         self.randomNumberGenerator()
