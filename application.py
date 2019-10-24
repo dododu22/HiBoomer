@@ -76,7 +76,7 @@ class RandomThread(Thread):
         while not thread_stop_event.isSet():
             if contact_menu:
                 if len(code)>0 and code[0] == "right":
-                    contact_selected=change_contact(True, contact_selected, socketio, self.delay)
+                    contact_selected=change_contact(True, contact_selected, socketio)
                 if len(code)>0 and code[0] == "left":
                     contact_selected=change_contact(False, contact_selected, socketio, self.delay)
                 if len(code)>0 and code[0] == "orange":
