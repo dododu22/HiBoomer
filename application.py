@@ -97,7 +97,7 @@ class RandomThread(Thread):
                     homepage_menu = False
                     contact_menu = True
             code = lirc.nextcode()
-
+            print(code)
                 
 
     def run(self):
