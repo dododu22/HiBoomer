@@ -72,6 +72,7 @@ class RandomThread(Thread):
         call_menu = False
         homepage_menu = True
         sockid = lirc.init("myprogram")
+        code = "Nothing"
         while not thread_stop_event.isSet():
             if contact_menu:
                 if len(code)>0 and code[0] == "right":
