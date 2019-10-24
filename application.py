@@ -75,21 +75,33 @@ class RandomThread(Thread):
         code = "Nothing"
         while not thread_stop_event.isSet():
             if contact_menu:
+                contact_selected=change_contact(True, contact_selected, socketio, self.delay)
                 if len(code)>0 and code[0] == "right":
-                    contact_selected=change_contact(True, contact_selected, socketio)
-                if len(code)>0 and code[0] == "left":
+                    contact_selected=change_contact(True, contact_selected, socketio, self.delay)
+                elif len(code)>0 and code[0] == "left":
                     contact_selected=change_contact(False, contact_selected, socketio, self.delay)
-                if len(code)>0 and code[0] == "orange":
+                elif len(code)>0 and code[0] == "orange":
+                    contact_menu = False
+                    homepage_menu = True
+                elif len(code)>0 and code[0] == "blue":
+                    galerie_menu = True
+                    contact_menu = False
+            elif galerie_menu:
+                photo_selected = change_photo(photo_selected, comments, True, socketio, False)
+                if len(code)>0 and code[0] == "right":
+                    photo_selected = change_photo(photo_selected, comments, True, socketio, True)
+                elif len(code)>0 and code[0] == "right":
+                    photo_selected = change_photo(photo_selected, comments, False, socketio, True)
+                elif len(code)>0 and code[0] == "orange":
                     galerie_menu = False
                     homepage_menu = True
-                if len(code)>0 and code[0] == "blue":
+                elif len(code)>0 and code[0] == "blue":
                     galerie_menu = False
                     contact_menu = True
-            if galerie_menu:
-                photo_selected = change_photo(photo_selected, comments, True, socketio, self.delay)
-            if call_menu:
+                
+            elif call_menu:
                 call("doran", socketio, 100)
-            if homepage_menu:
+            elif homepage_menu:
                 homepage(socketio)
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False

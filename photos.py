@@ -4,7 +4,7 @@ from contacts import get_true_index
 import os
 
 
-def change_photo(photo_selected, comments, right, socketio):
+def change_photo(photo_selected, comments, right, socketio, animate):
     paysages = os.listdir("static/photos")
     # if new photos arrived
     nb_false = len(paysages) - len(photo_selected)
@@ -14,8 +14,7 @@ def change_photo(photo_selected, comments, right, socketio):
     photo_selected = photo_selected + ([False]*nb_false)
     file_loader = FileSystemLoader('templates')
     env = Environment(loader=file_loader)
-    animation_foreground="none"
-    animation_background="none"
+
     position=get_true_index(photo_selected)
     direction=1
     if right:
@@ -35,9 +34,12 @@ def change_photo(photo_selected, comments, right, socketio):
 
     # socketio.emit('html', {'number': output}, namespace='/test')
     # sleep(delay)
-
-    animation_foreground="foreground"
-    animation_background="background"
+    if not animate:
+        animation_foreground="none"
+        animation_background="none"
+    else:
+        animation_foreground="foreground"
+        animation_background="background"
 
     output = template.render(txtmsg_background=txtmsg_background,txtmsg_foreground=txtmsg_foreground, animation_foreground=animation_foreground,
                             animation_background=animation_background, image_foreground=image_foreground, image_background=image_background, notification_opacity=notification_opacity,
