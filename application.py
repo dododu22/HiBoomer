@@ -90,7 +90,7 @@ class RandomThread(Thread):
                 photo_selected = change_photo(photo_selected, comments, True, socketio, False)
                 if len(code)>0 and code[0] == "right":
                     photo_selected = change_photo(photo_selected, comments, True, socketio, True)
-                elif len(code)>0 and code[0] == "right":
+                elif len(code)>0 and code[0] == "left":
                     photo_selected = change_photo(photo_selected, comments, False, socketio, True)
                 elif len(code)>0 and code[0] == "orange":
                     galerie_menu = False
@@ -106,9 +106,9 @@ class RandomThread(Thread):
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False
                     galerie_menu = True
-                if len(code)> 0 and code[0] == "bleu":
-                    homepage_menu = False
-                    contact_menu = True
+                # if len(code)> 0 and code[0] == "bleu":
+                #     homepage_menu = False
+                #     contact_menu = True
             code = lirc.nextcode()
             print(code)
                 
