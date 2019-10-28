@@ -23,10 +23,11 @@ def change_contact(right, is_selected, socketio, animate):
             class_select.append("contact")
     
     output = template.render(is_selected_1=class_select[0], is_selected_2=class_select[1], is_selected_3=class_select[2])
-
+    print(is_selected)
         
     socketio.emit('html', {'number': output}, namespace='/test')
     sleep(0.5)
+
     return is_selected
 
 def get_true_index(list_bool):

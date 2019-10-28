@@ -130,5 +130,36 @@ body{
     }
   
   
+  .bluebutton{
+    background:#1B019B;
+    border-radius:50%;
+    border:2px solid #1B019B;
+  }
+  .orangebutton{
+    background:#E59400;
+    border-radius:50%;
+    border:2px solid #E59400;
+  }
   
+  .buttontext{
+    font-size:30px;
+    font-family: 'Montserrat Light', arial;
+  }
   
+  .arrowleft {
+   display: block;
+   height: 0px;
+   width: 0px;
+   border: 70px solid transparent;
+   border-top-color: #247197;
+  transform: rotate(90deg);
+  }
+  
+    .arrowright {
+   display: block;
+   height: 0px;
+   width: 0px;
+   border: 70px solid transparent;
+   border-top-color: #247197;
+  transform: rotate(270deg);
+  }

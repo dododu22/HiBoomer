@@ -69,14 +69,16 @@ class RandomThread(Thread):
                     "paysage_9":{"contact":"Yves", "comment":"Hiboomer? ca claque", "date":"22/07/2019"}}
         contact_menu = False
         galerie_menu = False
-        call_menu = False
         homepage_menu = True
         sockid = lirc.init("myprogram")
         code = "Nothing"
+        first = True
         while not thread_stop_event.isSet():
             if contact_menu:
                 print("contact")
-                contact_selected=change_contact(True, contact_selected, socketio, False)
+                if first:
+                    contact_selected = change_contact(True, contact_selected, socketio, False)
+                    first = False
                 code = lirc.nextcode()
                 print(code)
                 if len(code)>0 and code[0] == "right":
@@ -88,12 +90,11 @@ class RandomThread(Thread):
                     contact_menu = False
                     homepage_menu = True
                 elif len(code)>0 and code[0] == "blue":
-                    call_menu = True
-                    contact_menu = False
+                    os.system("cvlc --no-video-title-show --play-and-exit --fullscreen ./static/call_doran.mp4")
+
             elif galerie_menu:
                 print("galerie")
                 photo_selected = change_photo(photo_selected, comments, True, socketio, False)
-                sleep(0.5)
                 code = lirc.nextcode()
                 print(code)
                 if len(code)>0 and code[0] == "right":
@@ -109,9 +110,7 @@ class RandomThread(Thread):
                 elif len(code)>0 and code[0] == "blue":
                     galerie_menu = False
                     contact_menu = True
-            elif call_menu:
-                print("menu")
-                call("doran", socketio, 100)
+
             elif homepage_menu:
                 print("homepage")
                 homepage(socketio)
@@ -124,6 +123,7 @@ class RandomThread(Thread):
                 if len(code)> 0 and code[0] == "blue":
                     homepage_menu = False
                     contact_menu = True
+                    first = True
 
                 
 
