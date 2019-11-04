@@ -13,6 +13,9 @@
   left:1070px;
 }
 .ovale {
+display: flex;
+justify-content: center;
+align-items: center;
 width: 105%;
 height: 750px;
 position: relative;
@@ -25,21 +28,6 @@ font-size: 50px; /* Titres de 40 pixels */
 font-family: 'Montserrat', arial;
 }
 
-.postalcard {
-    position: absolute;
-    top: 200px ;
-    left: 25%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 50%;
-    height: 400px;
-    background: #ffffff;
-    border: solid;
-    border-color: #0099FF;
-    border-radius: 5px;
-    font-family: 'Montserrat', arial;
-}
 
 @keyframes foreground {
 0% {opacity: 1;}
@@ -54,114 +42,115 @@ position: relative;
 left: 25%;
 width: 50%;
 height: 900px;
-
 }
 
 .homePage{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top : 3%;
+display:flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: absolute;
+top : 3%;
+width:100%;
+
 }
 
-.container{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top:2%;
-  width:100%;
-  color: #ffffff;
-  font-family: 'Montserrat Light', arial;
-  /*border: 2px solid red;*/
+.container_contacts{
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin-top:2%;
+width:100%;
+color: #ffffff;
+font-family: 'Montserrat', arial;
+border: 2px solid red;
 }
 
 .contact{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width:26%;
-  background: #0099ff;
-  border: solid;
-  border-color: white;
-  border-radius: 5px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+max-width:26%;
+background: #0099ff;
+border: solid;
+border-color: white;
+border-radius: 5px;
 }
 
 .contactImage{
-  width:70%;
+width:70%;
 }
 
 .leftArrow{
-  width :4%;
+width :4%;
 }
 .rightArrow{
-  width :4%;
+width :4%;
 }
-
 .homePageButton{
-  display:flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  width : 100%;
-  margin-top : 2%;
-  margin-right : 16%;
-  animation: 1s ease-out 0s 1 shake;
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-end;
+width : 100%;
+margin-top : 2%;
+margin-right : 16%;
+animation: 1s ease-out 0s 1 shake;
 }
 
 @keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+10%, 90% {
+transform: translate3d(-1px, 0, 0);
 }
+
+20%, 80% {
+transform: translate3d(2px, 0, 0);
+}
+
+30%, 50%, 70% {
+transform: translate3d(-4px, 0, 0);
+}
+
+40%, 60% {
+transform: translate3d(4px, 0, 0);
+}
+}
+
+
 .orangeImage {
-  width: 5%;
+width: 5%;
 }
 .blueImage {
-  width:20%;
+width:20%;
 }
 .callButton{
-  display : flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items:center;
-  margin-bottom:8%;
+display : flex;
+flex-direction: row;
+justify-content: center;
+align-items:center;
+margin-bottom:8%;
 }
 
 .callText{
-  margin-left: 5%;
-  color: white;
-  font-family: 'Montserrat Light', arial;
-  font-size : 20px;
+margin-left: 5%;
+color: white;
+font-family: 'Montserrat', arial;
+font-size : 20px;
 }
 
 .buttonText{
-  margin-left: 1%;
-  color: orange;
-  font-family: 'Montserrat', arial;
-  font-size : 30px;
+margin-left: 1%;
+color: orange;
+font-family: 'Montserrat', arial;
+font-size : 30px;
 }
 
 .homePageTitle{
-  color: #ffffff;
-  font-family: 'Montserrat Light', arial;
-  font-size : 50px;
+color: #ffffff;
+font-family: 'Montserrat', arial;
+font-size : 50px;
 }
-
 .contact_selected{
   display: flex;
   flex-direction: column;
@@ -191,4 +180,82 @@ height: 900px;
 
 .contact_img{
     width:70%;
+}
+
+
+.bluebutton{
+background:#1B019B;
+border-radius:50%;
+border:2px solid #1B019B;
+}
+.orangebutton{
+background:#E59400;
+border-radius:50%;
+border:2px solid #E59400;
+}
+
+.buttontext{
+font-size:30px;
+font-family: 'Montserrat', arial;
+}
+
+.arrowleft {
+display: block;
+height: 0px;
+width: 0px;
+border: 70px solid transparent;
+border-top-color: #247197;
+transform: rotate(90deg);
+}
+
+.arrowright {
+display: block;
+height: 0px;
+width: 0px;
+border: 70px solid transparent;
+border-top-color: #247197;
+transform: rotate(270deg);
+}
+
+.contenaire_postalcard{
+  display:flex;
+  justify-content: center;
+}
+
+.postalcard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width:70%;
+  margin-top:5%;
+  position: absolute;
+  top:70%;
+  background: #ffffff;
+  border: solid;
+  border-color: #0099FF;
+  border-radius: 5px;
+  font-family: 'Montserrat', arial;
+}
+
+.postalcard_img{
+  width:50%;
+  max-height:1000px;
+  /*border: 2px solid red;*/
+}
+
+.postalcard_text{
+  display: flex; 
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:flex-start;
+  width:100%;
+  height:400px;
+  margin-left:5%;
+  color:#0099FF;
+  /*border: 2px solid green;*/
+}
+
+.postalcard_message{
+  margin-left:10%;
+  color:#073763;
 }
