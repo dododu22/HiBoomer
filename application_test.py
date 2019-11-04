@@ -113,7 +113,7 @@ class RandomThread(Thread):
                 print("homepage")
                 homepage(socketio)
                 sleep(0.5)
-                code = ["blue"]
+                code = ["orange"]
                 print(code)
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False

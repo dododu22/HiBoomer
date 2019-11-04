@@ -58,30 +58,7 @@
     width: 50%;
     height: 900px;
 }
-body{
-  margin: 0;
-}
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-    background: #0099ff;
-    color: #ffffff;
-    font-size: 50px; /* Titres de 40 pixels */
-    font-family: 'Montserrat Light', arial;
-  }
-  
-  #container{
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-top:30px;
-      height: 70%;
-      color: #ffffff;
-      font-family: 'Montserrat Light', arial;
-      /*border: 2px solid red;*/
-    }
+
   
     .contact{
       display: flex;
