@@ -5,7 +5,7 @@
   
         <div class="container_contacts">
 
-            <div class = "leftArrow">
+            <div class = "leftArrow" style="animation-name:{{leftArrow}};">
                 <img src="/static/button/arrow_left.png" style="width:100%"/>
             </div>
             
@@ -14,7 +14,7 @@
                 <div class="name">Luc</div>
                 <div class="status">Petit-fils</div>
                 <div class="connection">non connecté</div>
-                <div class="callButton" style="display: {{display_1}};"> 
+                <div class="callButton" style="display:{{display_1}};animation-name:{{blueButton}};"> 
                     <img src="/static/button/button_blue.png" class="blueImage"/>
                     <div class="callText">Appeler</div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="name">Doran</div>
                 <div class="status">Petit-fils</div>
                 <div class="connection">Connecté</div>
-                <div class="callButton" style="display: {{display_2}};"> 
+                <div class="callButton" style="display: {{display_2}};animation-name:{{blueButton}};"> 
                         <img src="/static/button/button_blue.png" class="blueImage"/>
                         <div class="callText">Appeler</div>
                 </div>
@@ -36,20 +36,20 @@
                 <div class="name">Maria</div>
                 <div class="status">Petite-fille</div>
                 <div class="connection">Connecté</div>
-                <div class="callButton" style="display: {{display_3}};"> 
+                <div class="callButton" style="display: {{display_3}};animation-name:{{blueButton}};"> 
                         <img src="/static/button/button_blue.png" class="blueImage"/>
                         <div class="callText">Appeler</div>
                 </div>
             </div>
 
-            <div class = "rightArrow">
+            <div class = "rightArrow" style="animation-name:{{rightArrow}};">
                 <img src="/static/button/arrow_right.png" style="width:100%"/>
             </div>
 
         </div>
 
-        <div class="homePageButton"> 
-            <img src="/static/button/button_orange.png" class = "orangeImage"/>
+        <div class="homePageButton" > 
+            <img src="/static/button/button_orange.png" class = "orangeImage" style="animation: 1s ease-out 0s 1;animation-name:{{orangeButton}};"/>
             <div class="buttonText">Homepage</div>
         </div>
 

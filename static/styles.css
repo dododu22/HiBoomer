@@ -97,9 +97,13 @@
 
 .leftArrow{
   width :4%;
+  animation: 1s ease-out 0s 1;
+
 }
 .rightArrow{
   width :4%;
+  animation: 1s ease-out 0s 1;
+
 }
 .homePageButton{
   display:flex;
@@ -109,29 +113,42 @@
   width : 100%;
   margin-top : 2%;
   margin-right : 16%;
-  animation: 1s ease-out 0s 1 shake;
+  animation: 1s ease-out 0s 1;
 }
 
 @keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
+  10% {
+    transform: translate3d(1px, 0, 0);
   }
   
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+  50% {
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
     transform: translate3d(4px, 0, 0);
+    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+    -moz-filter: grayscale(1);
+    -o-filter: grayscale(1);
+    -ms-filter: grayscale(1);
   }
+
+  100% {
+    transform: translate3d(0px, 0, 0);
+  }
+}
+
+@keyframes press {
+  0%{
+    transform: translate3d(0, 0, 0);
+    }
+  100%{
+  transform: translate3d(-10px, 0, 0);
+}
 }
 .orangeImage {
   width: 5%;
 }
+
+
 .blueImage {
   width:20%;
 }
@@ -141,6 +158,7 @@
   justify-content: center;
   align-items:center;
   margin-bottom:8%;
+  animation: 1s ease-out 0s 1;
 }
 
 .callText{

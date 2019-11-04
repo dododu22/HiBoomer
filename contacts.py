@@ -2,10 +2,14 @@ from jinja2 import Environment, FileSystemLoader
 from time import sleep
 
 
-def change_contact(right, is_selected, socketio, animate):
-    val=1
+def change_contact(right, is_selected, socketio, animate, buttonAnimation):
+    rightArrow = "None"
+    leftArrow = "None"
+    orangeButton = "None"
+    blueButton = "None"
+    val=-1
     if right:
-        val=-1
+        val=1
     if animate:	    
         index = get_true_index(is_selected)
         is_selected[index]=False
@@ -24,9 +28,18 @@ def change_contact(right, is_selected, socketio, animate):
         else:
             class_select.append("contact")
             display.append("none")
-
+    print(buttonAnimation)
+    if buttonAnimation == "rightArrow":
+        rightArrow = "background"
+    elif buttonAnimation == "leftArrow":
+        leftArrow = "background"
+    elif buttonAnimation == "orangeButton":
+        orangeButton = "shake"
+    elif buttonAnimation == "blueButton":
+        blueButton = "shake"
     output = template.render(is_selected_1=class_select[0], is_selected_2=class_select[1], is_selected_3=class_select[2],
-                            display_1=display[0], display_2=display[1], display_3=display[2])
+                            display_1=display[0], display_2=display[1], display_3=display[2], rightArrow=rightArrow, leftArrow=leftArrow, orangeButton= orangeButton,
+                            blueButton=blueButton)
     print(is_selected)
         
     socketio.emit('html', {'number': output}, namespace='/test')

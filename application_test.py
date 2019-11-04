@@ -75,20 +75,28 @@ class RandomThread(Thread):
             if contact_menu:
                 print("contact")
                 if first:
-                    contact_selected = change_contact(True, contact_selected, socketio, False)
+                    contact_selected = change_contact(True, contact_selected, socketio, False, "None")
                     first = False
-                code = ["right"]
+                code = ["orange"]
                 sleep(5)
                 print(code)
                 if len(code)>0 and code[0] == "right":
                     print("change right")
-                    contact_selected=change_contact(True, contact_selected, socketio, True)
+                    contact_selected=change_contact(True, contact_selected, socketio, False, "rightArrow")
+                    sleep(1)
+                    contact_selected=change_contact(True, contact_selected, socketio, True, "None")
                 elif len(code)>0 and code[0] == "left":
-                    contact_selected=change_contact(False, contact_selected, socketio, True)
+                    contact_selected=change_contact(True, contact_selected, socketio, False, "leftArrow")
+                    sleep(1)
+                    contact_selected=change_contact(False, contact_selected, socketio, True, "None")
                 elif len(code)>0 and code[0] == "orange":
+                    contact_selected=change_contact(True, contact_selected, socketio, False, "orangeButton")
+                    sleep(1)
                     contact_menu = False
                     homepage_menu = True
                 elif len(code)>0 and code[0] == "blue":
+                    contact_selected=change_contact(True, contact_selected, socketio, False, "blueButton")
+                    sleep(1)
                     os.system("cvlc --no-video-title-show --play-and-exit --fullscreen ./static/call_doran.mp4")
 
             elif galerie_menu:
@@ -114,7 +122,7 @@ class RandomThread(Thread):
                 print("homepage")
                 homepage(socketio)
                 sleep(0.5)
-                code = ["orange"]
+                code = ["blue"]
                 print(code)
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False
