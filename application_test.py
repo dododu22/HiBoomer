@@ -78,6 +78,7 @@ class RandomThread(Thread):
                     contact_selected = change_contact(True, contact_selected, socketio, False)
                     first = False
                 code = ["right"]
+                sleep(5)
                 print(code)
                 if len(code)>0 and code[0] == "right":
                     print("change right")
@@ -113,7 +114,7 @@ class RandomThread(Thread):
                 print("homepage")
                 homepage(socketio)
                 sleep(0.5)
-                code = ["orange"]
+                code = ["blue"]
                 print(code)
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False

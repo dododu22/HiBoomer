@@ -1,45 +1,56 @@
-
 <div class="ovale">
-                <br/>
-                <br/>
-            Contacts
+    </div>
+    <div class= "homePage">
+        <div class="homePageTitle">Contacts</div>
+  
+        <div class="container_contacts">
+
+            <div class = "leftArrow">
+                <img src="/static/button/arrow_left.png" style="width:100%"/>
+            </div>
+            
+            <div class={{is_selected_1}} id="contact_1">
+                <img class = "contactImage" src="/static/Luc.png"/>
+                <div class="name">Luc</div>
+                <div class="status">Petit-fils</div>
+                <div class="connection">non connecté</div>
+                <div class="callButton" style="display: {{display_1}};"> 
+                    <img src="/static/button/button_blue.png" class="blueImage"/>
+                    <div class="callText">Appeler</div>
+                </div>
+            </div>
+
+            <div class={{is_selected_2}} id="contact_2">
+                <img class = "contactImage" src="/static/Doran.png"/>
+                <div class="name">Doran</div>
+                <div class="status">Petit-fils</div>
+                <div class="connection">Connecté</div>
+                <div class="callButton" style="display: {{display_2}};"> 
+                        <img src="/static/button/button_blue.png" class="blueImage"/>
+                        <div class="callText">Appeler</div>
+                </div>
+            </div>
+
+            <div class={{is_selected_3}} id="contact_2">
+                <img class = "contactImage" src="/static/Maria.png" />
+                <div class="name">Maria</div>
+                <div class="status">Petite-fille</div>
+                <div class="connection">Connecté</div>
+                <div class="callButton" style="display: {{display_3}};"> 
+                        <img src="/static/button/button_blue.png" class="blueImage"/>
+                        <div class="callText">Appeler</div>
+                </div>
+            </div>
+
+            <div class = "rightArrow">
+                <img src="/static/button/arrow_right.png" style="width:100%"/>
+            </div>
+
         </div>
 
-<div id="container" style="position: absolute;top: 175px">
-    <div class={{is_selected_1}} id="contact_1">
-            <img src="/static/Luc.png" style="width:70%;height:auto">
-            <div class="name">Luc</div>
-            <div class="status">Petit-fils</div>
-            <div class="connection">non connecté</div>
-            <div style="display: table-cell;position: relative;top: -20px;display: {{display_1}};"> 
-					<div class="bluebutton" style="display: table-cell;width:70px;height:70px;"></div>
-					<div class="buttontext" style="display: table-cell;position:relative;top:23px;">Appeler</div>
-				</div>
-    </div>
-    <div class={{is_selected_2}} id="contact_2">
-            <img src="/static/Doran.png"style="width:70%;height:auto">
-            <div class="name">Doran</div>
-            <div class="status">Petit-fils</div>
-            <div class="connection">Connecté</div>
-            <div style="display: table-cell;position: relative;top: -20px;display: {{display_2}};"> 
-					<div class="bluebutton" style="display: table-cell;width:70px;height:70px;"></div>
-					<div class="buttontext" style="display: table-cell;position:relative;top:23px;">Appeler</div>
-				</div>
-    </div>
-    <div class={{is_selected_3}} id="contact_2">
-        <img src="/static/Maria.png" style="width:70%;height:auto">
-        <div class="name">Maria</div>
-        <div class="status">Petite-fille</div>
-        <div class="connection">Connecté</div>
-        <div style="display: table-cell;position: relative;top: -20px;display: {{display_3}};"> 
-			<div class="bluebutton" style="display: table-cell;width:70px;height:70px;"></div>
-			<div class="buttontext" style="display: table-cell;position:relative;top:23px;">Appeler</div>
-		  </div>
-</div>
-</div>
+        <div class="homePageButton"> 
+            <img src="/static/button/button_orange.png" class = "orangeImage"/>
+            <div class="buttonText">Homepage</div>
+        </div>
 
-<div style="display:table-cell;position: absolute;top:100px;left:50px;"> 
-	<div class="orangebutton" style="display: table-cell;width:70px;height:70px;"></div>
-	<div class="buttontext" style="display: table-cell;position:relative;top:23px;">Homepage</div>
-</div>
-
+    </div>

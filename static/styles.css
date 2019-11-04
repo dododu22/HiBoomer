@@ -59,21 +59,109 @@
     height: 900px;
 }
 
+.homePage{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top : 3%;
+}
+
+.container_contacts{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top:2%;
+  width:100%;
+  color: #ffffff;
+  font-family: 'Montserrat', arial;
+  /*border: 2px solid red;*/
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width:26%;
+  background: #0099ff;
+  border: solid;
+  border-color: white;
+  border-radius: 5px;
+}
+
+.contactImage{
+  width:70%;
+}
+
+.leftArrow{
+  width :4%;
+}
+.rightArrow{
+  width :4%;
+}
+.homePageButton{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width : 100%;
+  margin-top : 2%;
+  margin-right : 16%;
+  animation: 1s ease-out 0s 1 shake;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
   
-    .contact{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-left:10px;
-      margin-right:10px;
-      max-width:25%;
-      height:100%;;
-      background: #0099ff;
-      border: solid;
-      border-color: white;
-      border-radius: 5px;
-    }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.orangeImage {
+  width: 5%;
+}
+.blueImage {
+  width:20%;
+}
+.callButton{
+  display : flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+  margin-bottom:8%;
+}
+
+.callText{
+  margin-left: 5%;
+  color: white;
+  font-family: 'Montserrat', arial;
+  font-size : 20px;
+}
+
+.buttonText{
+  margin-left: 1%;
+  color: orange;
+  font-family: 'Montserrat', arial;
+  font-size : 30px;
+}
+
+.homePageTitle{
+  color: #ffffff;
+  font-family: 'Montserrat', arial;
+  font-size : 50px;
+}
     .contact_selected{
       display: flex;
       flex-direction: column;
@@ -119,7 +207,7 @@
   
   .buttontext{
     font-size:30px;
-    font-family: 'Montserrat Light', arial;
+    font-family: 'Montserrat', arial;
   }
   
   .arrowleft {
