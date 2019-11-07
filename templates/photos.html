@@ -2,36 +2,47 @@
 <div class="ovale"></div>
 <div class= "homePage">
 <div class="homePageTitle">Galerie Photos</div>
-        <div class="container_contacts">
-                <div class="superposed">
-                        <div class="postalcard" style="animation-name: {{animation_foreground}};animation-duration:1s;">
-                                <img src="/static/photos/{{image_foreground}}" style="width:70%;height:auto; max-height:100%;">
-                                <div>        
-                                        <h2 style="color:#0099FF">{{contact_foreground}}</h2>
-                                        <br/>
-                                        {{txtmsg_foreground}}
-                                        <br/>
+<div class="postalcard" style="animation-name:{{animation_foreground}}; animation-duration:1s;">
+                
+        <img class="postalcard_img" src="/static/photos/{{image_foreground}}">
 
-                                        <h4 style="color:#0099FF">{{date_foreground}}</h4>
-                                </div>
-
-                                </div>
-
-                        <div class="postalcard" style="animation-name: {{animation_background}};animation-duration: 1s;opacity:0;">
-                                <img src="/static/photos/{{image_background}}" style="width:70%;height:auto; max-height:100%;">
-                                <div>
-                                        <h2 style="color:#0099FF">{{contact_background}}</h2>
-                                        <br/>
-                                        {{txtmsg_background}}
-                                        <br/>
-                                        <h4 style="color:#0099FF">{{date_background}}</h4>
-
-                                </div>
-                        </div>
-                </div>
-                <div class="notification" style="opacity:{{notification_opacity}};">
-                        <img src="/static/notif_photo.png" style="width:70%;height:auto; max-height:100%;">
-                </div>
+        <div class="postalcard_text">
+            <h2> {{contact_foreground}} </h2>
+            <div class="postalcard_message">
+                Bonjour !
+                 </br>
+                 {{txtmsg_foreground}}
+         
+            </div>
+            <h4> Reçu: {{date_foreground}} </h4>
         </div>
+
+    </div>
+
+    <div class="postalcard" style="animation-name: {{animation_background}};animation-duration: 1s;opacity:0;">
+        
+        <img class="postalcard_img" src="/static/photos/{{image_background}}">
+
+        <div class="postalcard_text">
+            <h2> {{contact_background}} </h2>
+            <div class="postalcard_message">
+                {{txtmsg_background}}
+         
+            </div>
+            <h4> Reçu: {{date_background}} </h4>
+        </div>
+
+    </div>
+
+</div>
+<!--
+        
+    <div class="notification" style="opacity:1;">
+        <img src="/static/notif_photo.png" style="width:70%;height:auto; max-height:100%;">
+    </div>
+
+
+</div>
+-->
 
 </div>

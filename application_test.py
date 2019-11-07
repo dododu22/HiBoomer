@@ -117,12 +117,11 @@ class RandomThread(Thread):
                 elif len(code)>0 and code[0] == "blue":
                     galerie_menu = False
                     contact_menu = True
-
             elif homepage_menu:
                 print("homepage")
                 homepage(socketio)
                 sleep(0.5)
-                code = ["blue"]
+                code = ["orange"]
                 print(code)
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False
