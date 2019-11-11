@@ -77,7 +77,7 @@ class RandomThread(Thread):
             if contact_menu:
                 print("contact")
                 if first:
-                    contact_selected = change_contact(True, contact_selected, socketio, False)
+                    contact_selected = change_contact(True, contact_selected, socketio, False, "None")
                     first = False
                 code = lirc.nextcode()
                 print(code)

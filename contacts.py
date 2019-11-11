@@ -30,18 +30,20 @@ def change_contact(right, is_selected, socketio, animate, buttonAnimation):
             display.append("none")
     print(buttonAnimation)
     if buttonAnimation == "rightArrow":
-        rightArrow = "background"
+        rightArrow = "foreground"
+        print("rarrow")
     elif buttonAnimation == "leftArrow":
-        leftArrow = "background"
+        leftArrow = "foreground"
     elif buttonAnimation == "orangeButton":
         orangeButton = "shake"
     elif buttonAnimation == "blueButton":
         blueButton = "shake"
+    print(orangeButton)
     output = template.render(is_selected_1=class_select[0], is_selected_2=class_select[1], is_selected_3=class_select[2],
                             display_1=display[0], display_2=display[1], display_3=display[2], rightArrow=rightArrow, leftArrow=leftArrow, orangeButton= orangeButton,
                             blueButton=blueButton)
     print(is_selected)
-        
+    print(output)
     socketio.emit('html', {'number': output}, namespace='/test')
     sleep(0.5)
 

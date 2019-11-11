@@ -63,7 +63,6 @@ margin-top:2%;
 width:100%;
 color: #ffffff;
 font-family: 'Montserrat', arial;
-border: 2px solid red;
 }
 
 .contact{
@@ -96,7 +95,7 @@ justify-content: flex-end;
 width : 100%;
 margin-top : 2%;
 margin-right : 16%;
-animation: 1s ease-out 0s 1 shake;
+animation: 1s ease-out 0s 1;
 }
 
 @keyframes shake {
