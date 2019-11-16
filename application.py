@@ -84,11 +84,11 @@ class RandomThread(Thread):
                 if len(code)>0 and code[0] == "right":
                     print("change right")
                     contact_selected=change_contact(True, contact_selected, socketio, False, "rightArrow")
-                    sleep(1)
+                    sleep(0.5)
                     contact_selected=change_contact(True, contact_selected, socketio, True, "None")
                 elif len(code)>0 and code[0] == "left":
                     contact_selected=change_contact(True, contact_selected, socketio, False, "leftArrow")
-                    sleep(1)
+                    sleep(0.5)
                     contact_selected=change_contact(False, contact_selected, socketio, True, "None")
                 elif len(code)>0 and code[0] == "orange":
                     contact_selected=change_contact(True, contact_selected, socketio, False, "orangeButton")
