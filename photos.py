@@ -53,20 +53,27 @@ def change_photo(photo_selected, comments, right, socketio, animate):
 
     # socketio.emit('html', {'number': output}, namespace='/test')
     # sleep(delay)
-    if not animate:
+    
+    if animate == "None":
         animation_foreground="none"
         animation_background="none"
+        orangeButton = "none"
+    elif animate == "home":
+        animation_foreground="none"
+        animation_background="none"
+        orangeButton = "shake"
     else:
         animation_foreground="foreground"
         animation_background="background"
+        orangeButton = "none"
 
     output = template.render(txtmsg_background=txtmsg_background,txtmsg_foreground=txtmsg_foreground, animation_foreground=animation_foreground,
                             animation_background=animation_background, image_foreground=image_foreground, image_background=image_background, notification_animation=notification_animation,
-                            contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background)
+                            contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background, orangeButton=orangeButton)
 
     socketio.emit('html', {'number': output}, namespace='/test')
     sleep(0.5)
-    if animate:
+    if animate == "change":
         photo_selected[position]=False
         photo_selected[(position+direction)%len(photo_selected)]=True
         print(photo_selected)

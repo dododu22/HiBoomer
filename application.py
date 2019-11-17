@@ -92,7 +92,7 @@ class RandomThread(Thread):
                     contact_selected=change_contact(False, contact_selected, socketio, True, "None")
                 elif len(code)>0 and code[0] == "orange":
                     contact_selected=change_contact(True, contact_selected, socketio, False, "orangeButton")
-                    sleep(1)
+                    sleep(0.5)
                     contact_menu = False
                     homepage_menu = True
                 elif len(code)>0 and code[0] == "blue":
@@ -102,16 +102,18 @@ class RandomThread(Thread):
 
             elif galerie_menu:
                 print("galerie")
-                photo_selected = change_photo(photo_selected, comments, True, socketio, False)
+                photo_selected = change_photo(photo_selected, comments, True, socketio, "None")
                 code = lirc.nextcode()
                 print(code)
                 if len(code)>0 and code[0] == "right":
                     print("change right")
-                    photo_selected = change_photo(photo_selected, comments, False, socketio, True)
+                    photo_selected = change_photo(photo_selected, comments, False, socketio, "change")
                 elif len(code)>0 and code[0] == "left":
                     print("change left")
-                    photo_selected = change_photo(photo_selected, comments, True, socketio, True)
+                    photo_selected = change_photo(photo_selected, comments, True, socketio, "change")
                 elif len(code)>0 and code[0] == "orange":
+                    photo_selected = change_photo(photo_selected, comments, True, socketio, "home")
+                    sleep(0.5)
                     galerie_menu = False
                     homepage_menu = True
                     homepage(socketio)

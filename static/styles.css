@@ -228,10 +228,10 @@ transform: rotate(270deg);
   justify-content: space-around;
   align-items: center;
   width:70%;
-  height:700px;
+  height:600px;
   margin-top:5%;
   position: absolute;
-  top:150%;
+  top:100%;
   background: #ffffff;
   border: solid;
   border-color: #0099FF;
@@ -241,6 +241,7 @@ transform: rotate(270deg);
 
 .postalcard_img{
   width:70%;
+  max-height:600px;
 
   /*border: 2px solid red;*/
 }
