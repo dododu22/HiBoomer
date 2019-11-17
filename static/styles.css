@@ -64,7 +64,15 @@ width:100%;
 color: #ffffff;
 font-family: 'Montserrat', arial;
 }
-
+.container_home{
+display: flex;
+justify-content: space-around;
+align-items: center;
+margin-top:25%;
+width:100%;
+color: #ffffff;
+font-family: 'Montserrat', arial;
+}
 .contact{
 display: flex;
 flex-direction: column;
@@ -92,6 +100,15 @@ display:flex;
 flex-direction: row;
 align-items: center;
 justify-content: flex-end;
+width : 100%;
+margin-top : 2%;
+margin-right : 16%;
+animation: 1s ease-out 0s 1;
+}
+.homeButton{
+display:flex;
+flex-direction: row;
+align-items: center;
 width : 100%;
 margin-top : 2%;
 margin-right : 16%;
@@ -139,7 +156,12 @@ color: white;
 font-family: 'Montserrat', arial;
 font-size : 20px;
 }
-
+.homeText{
+margin-left: 5%;
+color: black;
+font-family: 'Montserrat', arial;
+font-size : 30px;
+}
 .buttonText{
 margin-left: 1%;
 color: orange;
