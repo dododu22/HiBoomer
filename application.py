@@ -130,12 +130,15 @@ class RandomThread(Thread):
                 if len(code)>0 and code[0] == "orange":
                     homepage_menu = False
                     galerie_menu = True
+                    homepage(socketio, "orangeShake")
+                    sleep(0.5)
+
                 if len(code)> 0 and code[0] == "blue":
                     homepage_menu = False
                     contact_menu = True
                     first = True
-
-                
+                    homepage(socketio, "blueShake")
+                    sleep(0.5)               
 
     def run(self):
         self.randomNumberGenerator()
