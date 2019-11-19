@@ -1,7 +1,8 @@
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from threading import Thread, Event
-
+import os
+from time import sleep
 
 class GDriveThread(Thread):
     def __init__(self):
@@ -18,9 +19,12 @@ class GDriveThread(Thread):
             for file in fileList:
                 print('Title: %s, ID: %s' % (file['title'], file['id']))
                 # Get the folder ID that you want
-                file1 = drive.CreateFile({'id': file['id']})
-                print('Downloading file %s from Google Drive' % file['title']) # 'hello.png'
-                file1.GetContentFile("static/photos/"+file['title'])  # Save Drive file as a local file
+                if file['title'] not in os.listdir("static/photos"):
+                    file1 = drive.CreateFile({'id': file['id']})
+                    print('Downloading file %s from Google Drive' % file['title']) # 'hello.png'
+                    file1.GetContentFile("static/photos/"+file['title'])  # Save Drive file as a local file
+            print("sleeping")
+            sleep(self.delay)
 
     def run(self):
         self.gDriveSync()
