@@ -22,37 +22,26 @@ def change_photo(photo_selected, comments, right, socketio, animate):
     
     image_foreground = paysages[position]
     image_background = paysages[(position+direction)%len(paysages)]
-    try:
-        txtmsg_foreground = comments[paysages[position].split(".")[0]]["comment"]
-    except:
-        txtmsg_foreground = "Salut Mamie! La prsentation se passe bien les jurys ont lair sympathiques"
-    try:
-        txtmsg_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["comment"]
-    except:
-        txtmsg_background = "Salut Mamie! La prsentation se passe bien les jurys ont lair sympathiques"
-    try:
-        contact_foreground = comments[paysages[position].split(".")[0]]["contact"]
-    except:
-        contact_foreground = "Chloe"
-    try:
-        contact_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["contact"]
-    except:
-        contact_background = "Chloe"
-    try:
-        date_foreground = comments[paysages[position].split(".")[0]]["date"]
-    except:
-        date_foreground = "26/11/2019"
-    try:
-        date_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["date"]
-    except:
-        date_background = "26/11/2019"
-    template = env.get_template("photos.html")
-    # output = template.render(txtmsg_foreground=txtmsg_foreground,txtmsg_background=txtmsg_background , animation_foreground=animation_foreground,
-    #                         animation_background=animation_background, image_foreground=image_foreground, image_background=image_background, notification_opacity=notification_opacity,
-    #                         contact_foreground=contact_foreground, contact_background=contact_background, date_foreground=date_foreground, date_background=date_background)
 
-    # socketio.emit('html', {'number': output}, namespace='/test')
-    # sleep(delay)
+    if paysages[position].split(".")[0] not in comments.keys():
+        comment_val = "Salut Mamie! La soutenance se passe bien!"
+        contact_val = "Chloe"
+        date_val = "26/11/2019"
+        comments[paysages[position].split(".")[0]] = {"contact": contact_val, "comment":comment_val, "date":date_val}
+    if (paysages[(position+direction)%len(paysages)]).split(".")[0] not in comments.keys():
+        comment_val = "Salut Mamie! La soutenance se passe bien!"
+        contact_val = "Chloe"
+        date_val = "26/11/2019"
+        comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]] = {"contact": contact_val, "comment":comment_val, "date":date_val}
+
+    txtmsg_foreground = comments[paysages[position].split(".")[0]]["comment"]
+    txtmsg_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["comment"]
+    contact_foreground = comments[paysages[position].split(".")[0]]["contact"]
+    contact_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["contact"]
+    date_foreground = comments[paysages[position].split(".")[0]]["date"]
+    date_background = comments[(paysages[(position+direction)%len(paysages)]).split(".")[0]]["date"]
+    template = env.get_template("photos.html")
+
     
     if animate == "None":
         animation_foreground="none"
