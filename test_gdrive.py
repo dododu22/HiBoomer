@@ -6,7 +6,7 @@ from time import sleep
 
 class GDriveThread(Thread):
     def __init__(self):
-        self.delay = 3
+        self.delay = 1
         super(GDriveThread, self).__init__()
 
     def gDriveSync(self):
