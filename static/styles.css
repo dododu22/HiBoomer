@@ -102,6 +102,10 @@ width :4%;
 .rightArrow{
 width :4%;
 }
+
+.note{
+  width: 20%;
+}
 .homePageButton{
 display:flex;
 flex-direction: row;
