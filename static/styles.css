@@ -116,6 +116,17 @@ margin-top : 4%;
 margin-right : 16%;
 animation: 1s ease-out 0s 1;
 }
+.homePageButtonPhotos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 4%;
+    margin-left: -15%;
+    animation: 1s ease-out 0s 1;
+    position: absolute;
+}
 .homeButton{
 display:flex;
 flex-direction: row;
@@ -257,19 +268,19 @@ transform: rotate(270deg);
 }
 
 .postalcard {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width:70%;
-  height:600px;
-  margin-top:5%;
-  position: absolute;
-  top:100%;
-  background: #ffffff;
-  border: solid;
-  border-color: #0099FF;
-  border-radius: 5px;
-  font-family: 'Montserrat', arial;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    height: 750px;
+    margin-top: 5%;
+    position: absolute;
+    top: 100%;
+    background: #ffffff;
+    border: solid;
+    border-color: #0099FF;
+    border-radius: 5px;
+    font-family: 'Montserrat', arial;
 }
 
 .postalcard_img{

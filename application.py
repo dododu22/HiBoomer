@@ -69,7 +69,7 @@ class RandomThread(Thread):
                     "paysage_9":{"contact":"Yves", "comment":"Hiboomer ? ca claque", "date":"22/07/2019"},
                     "justine":{"contact":"Justine", "comment":"Looooongue sortie vélo ce weekend ! A mercredi !", "date":"26/08/2019"},
                     "maria":{"contact":"Maria", "comment":"Coucou Mamie! Des gros bisous de Paris", "date":"05/10/2019"},
-                    "chloe":{"contact":"Chloé", "comment":"C'est partie pour l'aventure en van ! Bisous!", "date":"22/07/2019"},
+                    "chloe":{"contact":"Chloé", "comment":"C'est parti pour l'aventure en van ! Bisous!", "date":"22/07/2019"},
                     "luc":{"contact":"Luc", "comment":"St Malo sous le soleil ! Ah non ? Bisous Mamie !", "date":"10/09/2019"}}
         contact_menu = False
         galerie_menu = False
