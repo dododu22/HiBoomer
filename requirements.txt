@@ -1,4 +1,4 @@
-cryptography==1.7.1
+cryptography==3.2
 Flask==1.1.1
 Flask-SocketIO==3.1.2
 requests==2.22.0
